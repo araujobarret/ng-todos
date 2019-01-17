@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { StorageServiceModule } from 'ngx-webstorage-service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LocalStorageService } from './services/local-storage.service';
+import { ServicesModule } from './services/index';
 
 @NgModule({
   declarations: [
@@ -15,11 +13,8 @@ import { LocalStorageService } from './services/local-storage.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StorageServiceModule
-  ],
-  providers: [
-    LocalStorageService
-  ],
+    ServicesModule
+  ]
   bootstrap: [AppComponent]
 })
 export class AppModule { }

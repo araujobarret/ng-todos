@@ -19,6 +19,8 @@ describe('LocalStorageService', () => {
   }));
 
   it('should store the token correctly', inject([LocalStorageService], (service: LocalStorageService) => {
-    expect(service.setToken('123')).toBeTruthy();
+    const token = 'aaa12359217837ddeefff91900';
+    expect(service.setToken(token)).toBeTruthy();
+    expect(service.getToken()).toBe(token);
   }));
 });
