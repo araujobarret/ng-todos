@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<section class="container mat-typography" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxFlex="50" fxLayoutAlign="none center" class="container-login">
+    <div class="login-header">
+      <span>SIGN IN</span>
+    </div>
+    <form class="login-form" fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center">
+      <mat-form-field class="login-form-input">
+        <mat-label class="login-form-label">LOGIN</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field class="login-form-input">
+        <mat-label class="login-form-label">PASSWORD</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <button mat-button class="login-form-button">ENTER</button>
+    </form>
+  </div>
+</section>

@@ -1,5 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
+// Most used UI Components
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { routes } from './app.routes';
@@ -26,9 +33,14 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
     DashboardModule,
     AppRoutingModule,
-    ServicesModule
+    ServicesModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   bootstrap: [AppComponent]
 })
