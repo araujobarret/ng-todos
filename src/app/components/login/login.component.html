@@ -3,18 +3,53 @@
     <div class="login-header">
       <span>SIGN IN</span>
     </div>
-    <form class="login-form" fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center">
-      <mat-form-field class="login-form-input">
-        <mat-label class="login-form-label">LOGIN</mat-label>
-        <input matInput>
-      </mat-form-field>
+    <form
+      class="login-form" fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center"
+      #loginForm="ngForm"
+      (ngSubmit)="onSubmit(loginForm)"
+    >
+      <div class="login-form-input" fxLayout="column">
+        <mat-form-field>
+          <mat-label class="login-form-label">LOGIN</mat-label>
+          <input
+            required
+            minlength="3"
+            maxlength="20"
+            ngModel
+            name="login"
+            #login="ngModel"
+            pattern="[a-z0-9._]+@[a-z0-9]+\.[a-z0-9]+(\.*[a-z0-9]*)"
+            matInput
+          >
+        </mat-form-field>
+        <span *ngIf="login.touched && !login.valid" class="login-error">
+          <span *ngIf="login.errors.required">Login is required</span>
+          <span *ngIf="login.errors.minlength">Should have at least {{ login.errors.minlength.requiredLength }} charcters</span>
+          <span *ngIf="login.errors.pattern">Is not a valid login</span>
+        </span>
+      </div>
 
-      <mat-form-field class="login-form-input">
-        <mat-label class="login-form-label">PASSWORD</mat-label>
-        <input matInput>
-      </mat-form-field>
+      <div class="login-form-input" fxLayout="column">
+        <mat-form-field class="login-form-input">
+          <mat-label class="login-form-label">PASSWORD</mat-label>
+          <input
+            required
+            ngModel
+            minlength="3"
+            maxlength="12"
+            name="password"
+            #password="ngModel"
+            matInput
+          >
+        </mat-form-field>
+        <span *ngIf="password.touched && !password.valid" class="login-error">
+          <span *ngIf="password.errors.required">Password is required</span>
+          <span *ngIf="password.errors.minlength">Should have at least {{ password.errors.minlength.requiredLength }} charcters</span>
+          <span *ngIf="password.errors.pattern">Is not a valid password</span>
+        </span>
+      </div>
 
-      <button mat-button class="login-form-button">ENTER</button>
+      <button mat-button #submit class="login-form-button">ENTER</button>
     </form>
   </div>
 </section>

@@ -6,8 +6,8 @@
 }
 
 .login-header {
-  background-color: #dedede;
-  color: #444;
+  background-color: #e2e2e2;
+  color: #777;
   text-align: center;
   font-weight: 500;
   padding: 16px 0;
@@ -17,6 +17,10 @@
 .login-form {
   padding: 16px;
   width: 100%;
+}
+
+.login-error {
+  color: red;
 }
 
 .login-form-label {

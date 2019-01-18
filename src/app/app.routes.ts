@@ -6,6 +6,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  { path: 'login', loadChildren: './components/login/login.module#LoginModule', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
