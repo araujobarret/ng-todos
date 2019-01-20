@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
@@ -8,7 +9,8 @@ import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   imports: [
-    StorageServiceModule
+    StorageServiceModule,
+    HttpClientModule
   ],
   providers: [
     LocalStorageService,
