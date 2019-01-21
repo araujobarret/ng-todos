@@ -12,14 +12,18 @@ export class AuthGuardService {
   constructor(private _authService: AuthService, private _router: Router) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this._authService.isAuthenticated()) {
-        return true;
-    }
-
-    // navigate to login page
-    this._router.navigate(['/login']);
-    // you can save redirect url so after authing we can move them back to the page they requested
-    return false;
+    return new Promise((resolve, reject) => {
+      this._authService.isAuthenticated()
+        .then(res => {
+          console.log('already authenticate', res);
+          resolve(res)
+        })
+        .catch(e => {
+          console.log('not authenticated', e);
+          this._router.navigate(['/login']);
+          reject(false);
+        });
+    });
   }
 
 }

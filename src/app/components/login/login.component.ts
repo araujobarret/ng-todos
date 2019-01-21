@@ -1,27 +1,24 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
   isLoading: boolean = false;
-  constructor(private http: HttpClient) { }
+
+  constructor(private auth: AuthService) { }
 
   onSubmit(form) {
     if(form.invalid || this.isLoading) { return false; }
+    console.log('not loading');
     this.isLoading = true;
-    this.http.get('https://jsonplaceholder.typicode.com/todos/1')
-      .subscribe(
-        (res: any) => {
-          console.log('res', res);
-        },
-        (error) => {
-          console.log('error', error);
-        }
-      );
+    this.auth.authenticate({ email: form.controls.login.value, password: form.controls.password.value })
+      .then(res => console.log('res', res))
+      .catch(e => console.log('error', e));
   }
 
 }

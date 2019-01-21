@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 // key that is used to access the data in local storage
 export const TODO_SERVICE_STORAGE ='TODO_SERVICE_STORAGE';
@@ -8,7 +8,7 @@ export const TODO_SERVICE_STORAGE ='TODO_SERVICE_STORAGE';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
   setToken (token) {
     try {
@@ -24,6 +24,7 @@ export class LocalStorageService {
   }
 
   deleteToken () {
+    console.log('token deleted');
     this.storage.set(TODO_SERVICE_STORAGE, undefined);
   }
 }
