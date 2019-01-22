@@ -14,7 +14,6 @@ httpOptions.headers = new HttpHeaders();
   providedIn: 'root'
 })
 export class AuthService {
-  private message: string;
 
   constructor(
     private http: HttpClient,
