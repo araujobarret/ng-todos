@@ -14,7 +14,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { AuthService } from '../../services/auth/auth.service';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 

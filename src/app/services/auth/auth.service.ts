@@ -82,11 +82,11 @@ export class AuthService {
           console.log('response', res);
           console.log('token stored', this._localStorage.getToken());
           console.log('localStorage', this._localStorage);
-          resolve(true);
+          resolve({ success: true, token: res });
         },
         (error) => {
           console.log('error', error);
-          resolve(false);
+          resolve({ sucess: false });
         }
       );
     });
