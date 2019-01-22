@@ -11,10 +11,7 @@
       <div class="login-form-input" fxLayout="column">
         <mat-form-field>
           <mat-label class="login-form-label">LOGIN</mat-label>
-          <input
-            formControlName="login"
-            matInput
-          >
+          <input formControlName="login" matInput />
         </mat-form-field>
         <span *ngIf="login.touched && !login.valid" class="login-error">
           <span *ngIf="login.errors.required">Login is required</span>
@@ -26,11 +23,7 @@
       <div class="login-form-input" fxLayout="column">
         <mat-form-field class="login-form-input">
           <mat-label class="login-form-label">PASSWORD</mat-label>
-          <input
-            formControlName="password"
-            type="password"
-            matInput
-          >
+          <input formControlName="password" type="password" matInput />
         </mat-form-field>
         <span *ngIf="password.touched && !password.valid" class="login-error">
           <span *ngIf="password.errors.required">Password is required</span>

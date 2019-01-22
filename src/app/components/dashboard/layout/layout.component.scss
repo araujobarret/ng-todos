@@ -1,0 +1,56 @@
+.todos-body {
+  background-color: #f6f6f6;
+  border-radius: 2px;
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 0 1px 10px #333;
+}
+
+.scrollbar {
+  right: -10px;
+  left: 0px;
+}
+
+.todos-title {
+  background-color: #e2e2e2;
+  color: #777;
+  text-align: center;
+  font-weight: bold;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.todo-body {
+  background-color: pink;
+  width: 100%;
+  min-height: 5vh;
+  margin: 2vh 0;
+}
+
+.todo-body-title {
+  font-weight: bold;
+  color: #444;
+  width: 100%;
+  margin: 2vh 0 0 0;
+}
+
+@media only screen and (min-width: 400px) {
+  .todos-body {
+    width: 350px;
+    min-height: 300px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .todos-body {
+    width: 500px;
+    min-height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .todos-body {
+    width: 700px;
+    min-height: 550px;
+  }
+}
