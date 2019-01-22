@@ -5,20 +5,14 @@
     </div>
     <form
       class="login-form" fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center"
-      #loginForm="ngForm"
-      (ngSubmit)="onSubmit(loginForm)"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
     >
       <div class="login-form-input" fxLayout="column">
         <mat-form-field>
           <mat-label class="login-form-label">LOGIN</mat-label>
           <input
-            required
-            minlength="3"
-            maxlength="20"
-            ngModel
-            name="login"
-            #login="ngModel"
-            pattern="[a-z0-9._]+@[a-z0-9]+\.[a-z0-9]+(\.*[a-z0-9]*)"
+            formControlName="login"
             matInput
           >
         </mat-form-field>
@@ -33,12 +27,7 @@
         <mat-form-field class="login-form-input">
           <mat-label class="login-form-label">PASSWORD</mat-label>
           <input
-            required
-            ngModel
-            minlength="3"
-            maxlength="12"
-            name="password"
-            #password="ngModel"
+            formControlName="password"
             type="password"
             matInput
           >
@@ -50,7 +39,7 @@
         </span>
       </div>
 
-      <button mat-button #submit class="login-form-button">ENTER</button>
+      <button mat-button class="login-form-button">ENTER</button>
     </form>
   </div>
 </section>

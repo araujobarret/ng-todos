@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import {Observable, pipe, throwError} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import { Observable, pipe, throwError } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { USERS_LOGIN, USERS_ME } from '../../constants/api';
@@ -24,7 +24,7 @@ export class AuthService {
 
   /**
    * check for expiration and if token is still existing or not
-   * @return {boolean}
+   * @return {Promise<boolean>}
    */
   isAuthenticated(): Promise<any> {
     return new Promise(async (resolve, reject) => {

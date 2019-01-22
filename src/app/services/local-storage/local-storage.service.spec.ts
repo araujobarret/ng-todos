@@ -3,6 +3,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { LocalStorageService, TODO_SERVICE_STORAGE } from './local-storage.service';
 
 describe('LocalStorageService', () => {
+  const token = 'aaa12359217837ddeefff91900';
   beforeEach(() => TestBed.configureTestingModule({
     imports: [StorageServiceModule],
     providers: [LocalStorageService]
@@ -14,12 +15,12 @@ describe('LocalStorageService', () => {
   });
 
   it('should have no token stored after a safe delete', inject([LocalStorageService], (service: LocalStorageService) => {
+    expect(service.setToken(token)).toBeTruthy();
     service.deleteToken();
     expect(service.getToken()).not.toBeDefined();
   }));
 
   it('should store the token correctly', inject([LocalStorageService], (service: LocalStorageService) => {
-    const token = 'aaa12359217837ddeefff91900';
     expect(service.setToken(token)).toBeTruthy();
     expect(service.getToken()).toBe(token);
   }));
